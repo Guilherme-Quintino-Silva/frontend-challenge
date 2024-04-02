@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row card p-5">
+    <form [formGroup]="formGroup" (ngSubmit)="sendPayload()">
+      <div class="col-12 d-flex justify-content-center">
+        <img src="assets/img/itau.png" alt="Logo Itaú" title="Logo Itaú" />
+      </div>
+      <div class="col-12">
+        <label for="email" class="form-label">Email:</label>
+        <input class="form-control" type="text" name="" id="email" formControlName="email" />
+      </div>
+      <div class="col-12">
+        <label for="password" class="form-label">Senha:</label>
+        <input class="form-control" type="text" name="" id="password" formControlName="password" />
+      </div>
+      <div class="col-12 my-2">
+        <input class="btn btn-dark" type="submit" value="enviar" [disabled]="!formGroup.valid" />
+      </div>
+    </form>
+    <app-alert *ngIf="alertBoolean" [message]="messageErrorAlert"></app-alert>
+  </div>
+</div>
