@@ -1,21 +1,53 @@
 <div class="container">
   <div class="row card p-5">
-    <form [formGroup]="formGroup" (ngSubmit)="sendPayload()">
-      <div class="col-12 d-flex justify-content-center">
-        <img src="assets/img/itau.png" alt="Logo Itaú" title="Logo Itaú" />
-      </div>
+    <div class="col-12 d-flex flex-row justify-content-center">
+      <img src="assets/img/itau.png" alt="Logo Itaú" title="Logo Itaú" />
+    </div>
+    <form
+      class="d-flex flex-row flex-column align-items-center"
+      [formGroup]="formGroup"
+    >
+      <h3>Criar sua conta</h3>
       <div class="col-12">
         <label for="email" class="form-label">Email:</label>
-        <input class="form-control" type="text" name="" id="email" formControlName="email" />
+        <input
+          class="form-control"
+          type="text"
+          name=""
+          id="email"
+          formControlName="email"
+        />
       </div>
       <div class="col-12">
         <label for="password" class="form-label">Senha:</label>
-        <input class="form-control" type="text" name="" id="password" formControlName="password" />
+        <input
+          class="form-control"
+          type="password"
+          name=""
+          id="password"
+          formControlName="password"
+          #passwordOcult
+        />
       </div>
-      <div class="col-12 my-2">
-        <input class="btn btn-dark" type="submit" value="enviar" [disabled]="!formGroup.valid" />
+      <div class="col-12 my-2 d-flex justify-content-between">
+        <button
+          class="btn btn-dark"
+          [disabled]="!formGroup.valid"
+          (click)="sendPayload()"
+        >
+          Enviar
+        </button>
+        <button
+          class="btn btn-link btn-sm"
+          [value]="textShow"
+          (click)="ocultPassworld()"
+        >
+          {{ textShow }}
+        </button>
       </div>
     </form>
-    <app-alert *ngIf="alertBoolean" [message]="messageErrorAlert"></app-alert>
+    <div *ngIf="alertBoolean" [ngStyle]="{'background': messageErrorAlert.includes('sucesso') ? '#d1e7dd' : '#f8d7da'}" class="alert" role="alert">
+      <app-alert [message]="messageErrorAlert"></app-alert>
+    </div>
   </div>
 </div>

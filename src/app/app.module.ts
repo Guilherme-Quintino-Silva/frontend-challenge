@@ -10,6 +10,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertComponent } from './shared/alert/alert.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormComponent,
     FooterComponent,
     HeaderComponent,
-    AlertComponent
+    AlertComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
